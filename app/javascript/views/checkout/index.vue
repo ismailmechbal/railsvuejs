@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Reservation :data="data.status" v-if="!visible" />
-    <Payment :data="reservation" v-if="visible" />
+    <Reservation :data="data.status" v-if="!visible" @reservationEvent="handlePayment" />
+    <Payment :data="reservation" v-if="visible" @paymentEvent="handleReservation" />
   </div>
 </template>
 
@@ -20,17 +20,14 @@ export default {
     Reservation,
     Payment
   },
-  created() {
-    // fetch(`/api/segment/${this.data.segment_id}`).then((result) => {
-    //   this.data = result;
-    // });
-    this.$root.$on("reservationEvent", event => {
+  methods: {
+    handlePayment(event) {
       this.reservation = event;
       this.visible = true;
-    });
-    this.$root.$on("paymentEvent", () => {
+    },
+    handleReservation() {
       this.visible = false;
-    });
+    }
   }
 };
 </script>

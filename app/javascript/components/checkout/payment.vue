@@ -15,9 +15,9 @@ export default {
   props: ["data"],
   methods: {
     showReservation() {
-      this.$root.$emit("paymentEvent");
-    },
-  },
+      this.$emit("paymentEvent");
+    }
+  }
 };
 </script>
 

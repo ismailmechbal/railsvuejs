@@ -41,7 +41,7 @@ export default {
         startDate: this.startDate
       };
       console.log("showPayment", data);
-      this.$root.$emit("reservationEvent", data);
+      this.$emit("reservationEvent", data);
     },
     setPrice(selectedDates) {
       this.price = 200;

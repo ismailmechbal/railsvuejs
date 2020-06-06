@@ -10,6 +10,6 @@ Vue.component("checkout", Checkout);
 
 document.addEventListener("turbolinks:load", () => {
   const app = new Vue({
-    el: "[data-checkout='vue']",
+    el: "#data",
   });
 });
